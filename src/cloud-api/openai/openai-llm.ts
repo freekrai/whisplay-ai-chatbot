@@ -121,10 +121,10 @@ const chatWithLLMStream: ChatWithLLMStreamFunction = async (
     .pop();
 
   const requestMessages = useSingleMessagePayload
-    ? ({
+    ? ([{
         role: "user",
         content: multimodalLastUserContent,
-      } as any)
+      }] as any)
     : messages.map((msg, index) => {
         if (
           capturedImagePath &&
