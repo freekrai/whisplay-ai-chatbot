@@ -136,7 +136,7 @@ const chatWithLLMStream: ChatWithLLMStreamFunction = async (
       messages.push({
         role: "assistant",
         content: partialAnswer,
-        tool_calls: functionCalls,
+        tool_calls: isEmpty(functionCalls) ? undefined : functionCalls,
       });
 
       if (!isEmpty(functionCalls)) {
